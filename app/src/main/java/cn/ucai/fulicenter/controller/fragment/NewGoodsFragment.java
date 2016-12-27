@@ -26,8 +26,6 @@ import cn.ucai.fulicenter.model.utils.ConvertUtils;
 import cn.ucai.fulicenter.model.utils.L;
 import cn.ucai.fulicenter.view.SpaceItemDecoration;
 
-import static android.R.attr.action;
-
 /**
  * Created by clawpo on 2016/12/27.
  */
@@ -61,10 +59,12 @@ public class NewGoodsFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
         rv.addItemDecoration(new SpaceItemDecoration(12));
-        initData();
+        initData(I.ACTION_DOWNLOAD);
+        setPullUpListener();
+        setPullDownListener();
     }
 
-    void initData(){
+    void initData(final int action){
         //获取cat_id
         int catId=getActivity().getIntent().getIntExtra(I.NewAndBoutiqueGoods.CAT_ID,0);
         model.downData(getContext(), catId, pageId, new OnCompleteListener<NewGoodsBean[]>() {
@@ -95,6 +95,39 @@ public class NewGoodsFragment extends Fragment {
                 adapter.setMore(false);
                 CommonUtils.showShortToast(error);
                 L.e("error:"+error);
+            }
+        });
+    }
+    private void setPullDownListener() {
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                srl.setRefreshing(true);
+                tv_refresh.setVisibility(View.VISIBLE);
+                pageId = 1;
+                initData(I.ACTION_PULL_DOWN);
+            }
+        });
+    }
+    private void setPullUpListener() {
+        rv.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                int lastPosition = glm.findLastVisibleItemPosition();
+                if(newState == RecyclerView.SCROLL_STATE_IDLE
+                        && lastPosition == adapter.getItemCount()-1
+                        && adapter.isMore()){
+                    pageId++;
+                    initData(I.ACTION_PULL_UP);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int firstPosition = glm.findFirstVisibleItemPosition();
+                srl.setEnabled(firstPosition==0);
             }
         });
     }
