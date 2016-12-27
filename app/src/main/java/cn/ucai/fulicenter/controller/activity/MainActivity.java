@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         mFragments[2] = mCategoryFragment = new CategoryFragment_();
         mFragments[3] = mCartFragment = new CartFragment_();
         mFragments[4] = mPersonalFragment = new PersonalFragment_();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container,mNewGoodsFragment)
+                .show(mNewGoodsFragment)
+                .commit();
     }
 
     public void onCheckedChange(View view){
