@@ -1,6 +1,7 @@
 package cn.ucai.fulicenter.controller.activity;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
@@ -10,6 +11,11 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.controller.fragment.BoutiquesFragment_;
+import cn.ucai.fulicenter.controller.fragment.CartFragment_;
+import cn.ucai.fulicenter.controller.fragment.CategoryFragment_;
+import cn.ucai.fulicenter.controller.fragment.NewGoodsFragment_;
+import cn.ucai.fulicenter.controller.fragment.PersonalFragment_;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @ViewById(R.id.layout_personal_center)
     RadioButton mLayoutPersonalCenter;
 
+    Fragment mNewGoodsFragment,mBoutiqueFragment,mCategoryFragment,mCartFragment,mPersonalFragment;
+
     int index,currentIndex;
     Fragment[] mFragments;
     RadioButton[] rbs;
@@ -36,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         rbs[2] = mLayoutCategory;
         rbs[3] = mLayoutCart;
         rbs[4] = mLayoutPersonalCenter;
+        mFragments = new Fragment[5];
+        mFragments[0] = mNewGoodsFragment = new NewGoodsFragment_();
+        mFragments[1] = mBoutiqueFragment = new BoutiquesFragment_();
+        mFragments[2] = mCategoryFragment = new CategoryFragment_();
+        mFragments[3] = mCartFragment = new CartFragment_();
+        mFragments[4] = mPersonalFragment = new PersonalFragment_();
     }
 
     public void onCheckedChange(View view){
@@ -60,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setFragment() {
-//        if(index!=currentIndex) {
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            ft.hide(mFragments[currentIndex]);
-//            if(!mFragments[index].isAdded()){
-//                ft.add(R.id.fragment_container,mFragments[index]);
-//            }
-//            ft.show(mFragments[index]).commit();
-//        }
+        if(index!=currentIndex) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.hide(mFragments[currentIndex]);
+            if(!mFragments[index].isAdded()){
+                ft.add(R.id.fragment_container,mFragments[index]);
+            }
+            ft.show(mFragments[index]).commit();
+        }
         setRadioButtonStatus();
         currentIndex = index;
     }
