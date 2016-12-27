@@ -1,11 +1,11 @@
 package cn.ucai.fulicenter.controller.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.model.utils.MFGT;
 
 public class SplashActivity extends Activity {
 
@@ -22,7 +22,9 @@ public class SplashActivity extends Activity {
                 new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                        //startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                        MFGT.gotoMain(SplashActivity.this);
+                        MFGT.finish(SplashActivity.this);
                     }
                 }
         ,2000);
