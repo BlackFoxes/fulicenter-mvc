@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.controller.activity.MainActivity;
+import cn.ucai.fulicenter.controller.activity.MainActivity_;
 
 /**
  * Created by clawpo on 2016/12/27.
@@ -24,6 +24,6 @@ public class MFGT {
         startActivity(activity,intent);
     }
     public static void gotoMain(Activity activity){
-        startActivity(activity, MainActivity.class);
+        startActivity(activity, MainActivity_.class);
     }
 }
