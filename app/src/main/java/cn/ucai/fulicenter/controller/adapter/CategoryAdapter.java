@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import cn.ucai.fulicenter.bean.CategoryChildBean;
 import cn.ucai.fulicenter.bean.CategoryGroupBean;
+import cn.ucai.fulicenter.model.utils.L;
 import cn.ucai.fulicenter.model.utils.MFGT;
 import cn.ucai.fulicenter.view.ChildViewHolder;
 import cn.ucai.fulicenter.view.ChildViewHolder_;
@@ -100,6 +101,7 @@ public class CategoryAdapter extends BaseExpandableListAdapter {
             public void onClick(View view) {
                 ArrayList<CategoryChildBean> list = mChildList.get(i);
                 String groupName = mGroupList.get(i).getName();
+                L.e("adapter","groupName="+groupName);
                 MFGT.gotoCategoryChildActivity(context,child.getId(),groupName,list);
             }
         });

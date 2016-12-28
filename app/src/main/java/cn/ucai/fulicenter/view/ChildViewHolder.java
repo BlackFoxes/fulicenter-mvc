@@ -1,7 +1,6 @@
 package cn.ucai.fulicenter.view;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -37,14 +36,6 @@ public class ChildViewHolder extends LinearLayout {
     public void bind(CategoryChildBean child){
         ImageLoader.downloadImg(mContext,mIvCategoryChildThumb,child.getImageUrl());
         mTvCategoryChildName.setText(child.getName());
-        mLayoutCategoryChild.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                ArrayList<CategoryChildBean> list = mChildList.get(groupPosition);
-//                String groupName = mGroupList.get(groupPosition).getName();
-//                MFGT.gotoCategoryChildActivity(mContext,child.getId(),groupName,list);
-            }
-        });
-        
+
     }
 }
