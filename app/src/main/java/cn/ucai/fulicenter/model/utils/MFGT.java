@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.application.I;
+import cn.ucai.fulicenter.bean.BoutiqueBean;
 import cn.ucai.fulicenter.controller.activity.GoodsDetailActivity_;
 import cn.ucai.fulicenter.controller.activity.MainActivity_;
 
@@ -47,5 +48,11 @@ public class MFGT {
         Intent intent = new Intent();
 //        intent.setClass(context,LoginActivity.class);
 //        startActivityForResult(context,intent,I.REQUEST_CODE_LOGIN);
+    }
+    public static void gotoBoutiqueChildActivity(Context context, BoutiqueBean bean){
+//        Intent intent = new Intent();
+//        intent.setClass(context, BoutiqueChildActivity.class);
+//        intent.putExtra(I.Boutique.CAT_ID,bean);
+//        startActivity(context,intent);
     }
 }
