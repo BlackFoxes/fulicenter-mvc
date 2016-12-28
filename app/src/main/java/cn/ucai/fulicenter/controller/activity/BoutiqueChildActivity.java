@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
@@ -26,6 +27,7 @@ import cn.ucai.fulicenter.model.net.OnCompleteListener;
 import cn.ucai.fulicenter.model.utils.CommonUtils;
 import cn.ucai.fulicenter.model.utils.ConvertUtils;
 import cn.ucai.fulicenter.model.utils.L;
+import cn.ucai.fulicenter.model.utils.MFGT;
 import cn.ucai.fulicenter.view.SpaceItemDecoration;
 
 @EActivity(R.layout.activity_boutique_child)
@@ -139,5 +141,8 @@ public class BoutiqueChildActivity extends AppCompatActivity {
                 srl.setEnabled(firstPosition==0);
             }
         });
+    }
+    @Click void backClickArea(){
+        MFGT.finish(this);
     }
 }
