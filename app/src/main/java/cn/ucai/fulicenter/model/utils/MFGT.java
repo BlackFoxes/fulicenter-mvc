@@ -42,4 +42,10 @@ public class MFGT {
         intent.putExtra(I.GoodsDetails.KEY_GOODS_ID,goodsId);
         startActivity(context,intent);
     }
+
+    public static void gotoLogin(Activity context){
+        Intent intent = new Intent();
+//        intent.setClass(context,LoginActivity.class);
+//        startActivityForResult(context,intent,I.REQUEST_CODE_LOGIN);
+    }
 }
