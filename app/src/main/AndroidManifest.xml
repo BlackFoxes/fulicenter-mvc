@@ -41,6 +41,8 @@
         </activity>
         <activity android:name=".controller.activity.GoodsDetailActivity_">
         </activity>
+        <activity android:name=".controller.activity.BoutiqueChildActivity_">
+        </activity>
     </application>
 
 </manifest>

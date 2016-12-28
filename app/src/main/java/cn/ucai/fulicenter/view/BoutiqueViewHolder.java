@@ -13,6 +13,7 @@ import org.androidannotations.annotations.ViewById;
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.bean.BoutiqueBean;
 import cn.ucai.fulicenter.model.utils.ImageLoader;
+import cn.ucai.fulicenter.model.utils.MFGT;
 
 @EViewGroup(R.layout.item_boutique)
 public class BoutiqueViewHolder extends LinearLayout {
@@ -44,6 +45,6 @@ public class BoutiqueViewHolder extends LinearLayout {
 
     @Click void layout_boutique_item(){
         BoutiqueBean bean = (BoutiqueBean) mLayoutBoutiqueItem.getTag();
-//        MFGT.gotoBoutiqueChildActivity(mContext,bean);
+        MFGT.gotoBoutiqueChildActivity(mContext,bean);
     }
 }
