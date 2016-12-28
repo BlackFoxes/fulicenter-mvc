@@ -13,6 +13,7 @@ import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.bean.NewGoodsBean;
 import cn.ucai.fulicenter.model.utils.ImageLoader;
 import cn.ucai.fulicenter.model.utils.L;
+import cn.ucai.fulicenter.model.utils.MFGT;
 
 @EViewGroup(R.layout.item_goods)
 public class GoodsViewHolder extends LinearLayout {
@@ -43,6 +44,6 @@ public class GoodsViewHolder extends LinearLayout {
     void layoutGoods(){
         int goodsId = (int) layoutGoods.getTag();
         L.e("goodsId="+goodsId);
-//        MFGT.gotoGoodsDetailsActivity(mContext,goodsId);
+        MFGT.gotoGoodsDetailsActivity(mContext,goodsId);
     }
 }

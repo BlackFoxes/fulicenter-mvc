@@ -19,9 +19,9 @@
     <uses-permission android:name="android.permission.NFC"/>
 
     <!-- 百度支付需要的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:name=".application.FuLiCenterApplication"
@@ -38,6 +38,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".controller.activity.GoodsDetailActivity_">
         </activity>
     </application>
 
