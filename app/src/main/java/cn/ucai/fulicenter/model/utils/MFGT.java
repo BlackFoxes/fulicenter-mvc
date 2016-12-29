@@ -13,7 +13,9 @@ import cn.ucai.fulicenter.bean.CategoryChildBean;
 import cn.ucai.fulicenter.controller.activity.BoutiqueChildActivity_;
 import cn.ucai.fulicenter.controller.activity.CategoryChildActivity_;
 import cn.ucai.fulicenter.controller.activity.GoodsDetailActivity_;
+import cn.ucai.fulicenter.controller.activity.LoginActivity_;
 import cn.ucai.fulicenter.controller.activity.MainActivity_;
+import cn.ucai.fulicenter.controller.activity.RegisterActivity_;
 
 /**
  * Created by clawpo on 2016/12/27.
@@ -49,17 +51,17 @@ public class MFGT {
         startActivity(context,intent);
     }
 
-    public static void gotoLogin(Activity context){
-        Intent intent = new Intent();
-//        intent.setClass(context,LoginActivity.class);
-//        startActivityForResult(context,intent,I.REQUEST_CODE_LOGIN);
+    public static void gotoLogin(Context context){
+        LoginActivity_.intent(context).startForResult(I.REQUEST_CODE_LOGIN)
+                .withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
     public static void gotoBoutiqueChildActivity(Context context, BoutiqueBean bean){
 //        Intent intent = new Intent();
 //        intent.setClass(context, BoutiqueChildActivity_.class);
 //        intent.putExtra(I.Boutique.CAT_ID,bean);
 //        startActivity(context,intent);
-        BoutiqueChildActivity_.intent(context).extra(I.Boutique.CAT_ID,bean).start();
+        BoutiqueChildActivity_.intent(context).extra(I.Boutique.CAT_ID,bean).start()
+                .withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
 
     public static void gotoCategoryChildActivity(Context context, int catId, String groupName, ArrayList<CategoryChildBean> list){
@@ -69,5 +71,10 @@ public class MFGT {
         intent.putExtra(I.CategoryGroup.NAME,groupName);
         intent.putExtra(I.CategoryChild.ID,list);
         startActivity(context,intent);
+    }
+    public static void gotoRegister(Activity context){
+        RegisterActivity_.intent(context)
+                .startForResult(I.REQUEST_CODE_REGISTER)
+                .withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
 }
