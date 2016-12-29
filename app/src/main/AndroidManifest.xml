@@ -49,6 +49,10 @@
         </activity>
         <activity android:name=".controller.activity.RegisterActivity_">
         </activity>
+        <activity android:name=".controller.activity.UserProfileActivity_">
+        </activity>
+        <activity android:name=".controller.activity.UpdateNickActivity_">
+        </activity>
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -144,5 +145,15 @@ public class PersonalFragment extends Fragment {
                 mTvCollectCount.setText(String.valueOf(0));
             }
         });
+    }
+
+    @Click({R.id.tv_center_settings, R.id.center_user_info})
+    public void gotoSettings() {
+        MFGT.gotoSettings(getActivity());
+    }
+
+    @Click(R.id.layout_center_collect)
+    public void gotoCollectsList(){
+//        MFGT.gotoCollects(getActivity());
     }
 }
