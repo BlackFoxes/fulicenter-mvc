@@ -2,6 +2,7 @@ package cn.ucai.fulicenter.model.net;
 
 import android.content.Context;
 
+import cn.ucai.fulicenter.bean.CollectBean;
 import cn.ucai.fulicenter.bean.GoodsDetailsBean;
 import cn.ucai.fulicenter.bean.MessageBean;
 
@@ -15,4 +16,6 @@ public interface IModelGoodsDetail {
     void addCollect(Context context, String username, int goodsId, OnCompleteListener<MessageBean> listener);
     void isColected(Context context,String username,int goodsId,OnCompleteListener<MessageBean> listener);
     void addCart(Context context,String username, int goodsId, OnCompleteListener<MessageBean> listener);
+    void getCollectsCount(Context context, String username, OnCompleteListener<MessageBean> listener);
+    void downloadCollects(Context context, String username, int pageId, OnCompleteListener<CollectBean[]> listener);
 }

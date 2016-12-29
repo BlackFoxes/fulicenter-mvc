@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.application.FuLiCenterApplication;
+import cn.ucai.fulicenter.bean.User;
+import cn.ucai.fulicenter.model.dao.SharePrefrenceUtils;
+import cn.ucai.fulicenter.model.dao.UserDao;
 import cn.ucai.fulicenter.model.utils.MFGT;
 
 public class SplashActivity extends Activity {
@@ -22,6 +26,16 @@ public class SplashActivity extends Activity {
                 new Runnable() {
                     @Override
                     public void run() {
+
+                        User user = FuLiCenterApplication.getUser();
+                        String username = SharePrefrenceUtils.getInstence(SplashActivity.this).getUser();
+                        if(user==null && username!=null) {
+                            UserDao dao = new UserDao(SplashActivity.this);
+                            user = dao.getUser(username);
+                            if(user!=null){
+                                FuLiCenterApplication.setUser(user);
+                            }
+                        }
                         //startActivity(new Intent(SplashActivity.this,MainActivity.class));
                         MFGT.gotoMain(SplashActivity.this);
                         MFGT.finish(SplashActivity.this);
