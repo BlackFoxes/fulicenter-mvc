@@ -53,6 +53,8 @@
         </activity>
         <activity android:name=".controller.activity.UpdateNickActivity_">
         </activity>
+        <activity android:name=".controller.activity.CollectsActivity_">
+        </activity>
     </application>
 
 </manifest>

@@ -154,6 +154,6 @@ public class PersonalFragment extends Fragment {
 
     @Click(R.id.layout_center_collect)
     public void gotoCollectsList(){
-//        MFGT.gotoCollects(getActivity());
+        MFGT.gotoCollects(getActivity());
     }
 }
