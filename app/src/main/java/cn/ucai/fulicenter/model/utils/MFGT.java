@@ -16,6 +16,7 @@ import cn.ucai.fulicenter.controller.activity.CollectsActivity_;
 import cn.ucai.fulicenter.controller.activity.GoodsDetailActivity_;
 import cn.ucai.fulicenter.controller.activity.LoginActivity_;
 import cn.ucai.fulicenter.controller.activity.MainActivity_;
+import cn.ucai.fulicenter.controller.activity.OrderActivity_;
 import cn.ucai.fulicenter.controller.activity.RegisterActivity_;
 import cn.ucai.fulicenter.controller.activity.UpdateNickActivity_;
 import cn.ucai.fulicenter.controller.activity.UserProfileActivity_;
@@ -95,7 +96,7 @@ public class MFGT {
                 .withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
     public static void gotoBuy(Context context,String cartIds){
-//        Intent intent = new Intent(context, OrderActivity.class).putExtra(I.Cart.ID,cartIds);
-//        startActivity(context,intent);
+        OrderActivity_.intent(context).extra(I.Cart.ID,cartIds)
+                .start().withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
 }
