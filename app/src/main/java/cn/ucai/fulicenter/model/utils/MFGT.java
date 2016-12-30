@@ -94,4 +94,8 @@ public class MFGT {
         CollectsActivity_.intent(context).start()
                 .withAnimation(R.anim.push_left_in,R.anim.push_left_out);
     }
+    public static void gotoBuy(Context context,String cartIds){
+//        Intent intent = new Intent(context, OrderActivity.class).putExtra(I.Cart.ID,cartIds);
+//        startActivity(context,intent);
+    }
 }

@@ -86,4 +86,33 @@ public class ModelGoodsDetail implements IModelGoodsDetail {
                 .targetClass(CollectBean[].class)
                 .execute(listener);
     }
+
+    @Override
+    public void updateCart(Context context, int cartId, int count, OnCompleteListener<MessageBean> listener) {
+        OkHttpUtils<MessageBean> utils = new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_UPDATE_CART)
+                .addParam(I.Cart.ID,String.valueOf(cartId))
+                .addParam(I.Cart.COUNT,String.valueOf(count))
+                .addParam(I.Cart.IS_CHECKED,String.valueOf(I.CART_CHECKED_DEFAULT))
+                .targetClass(MessageBean.class)
+                .execute(listener);
+    }
+
+    @Override
+    public void deleteCart(Context context, int cartId, OnCompleteListener<MessageBean> listener) {
+        OkHttpUtils<MessageBean> utils = new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_DELETE_CART)
+                .addParam(I.Cart.ID,String.valueOf(cartId))
+                .targetClass(MessageBean.class)
+                .execute(listener);
+    }
+
+    @Override
+    public void downloadCart(Context context, String username, OnCompleteListener<String> listener) {
+        OkHttpUtils<String> utils = new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_FIND_CARTS)
+                .addParam(I.Cart.USER_NAME,username)
+                .targetClass(String.class)
+                .execute(listener);
+    }
 }

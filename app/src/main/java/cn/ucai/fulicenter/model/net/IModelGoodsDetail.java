@@ -18,4 +18,7 @@ public interface IModelGoodsDetail {
     void addCart(Context context,String username, int goodsId, OnCompleteListener<MessageBean> listener);
     void getCollectsCount(Context context, String username, OnCompleteListener<MessageBean> listener);
     void downloadCollects(Context context, String username, int pageId, OnCompleteListener<CollectBean[]> listener);
+    void updateCart(Context context, int cartId, int count, OnCompleteListener<MessageBean> listener);
+    void deleteCart(Context context, int cartId, OnCompleteListener<MessageBean> listener);
+    void downloadCart(Context context,String username,OnCompleteListener<String> listener);
 }
